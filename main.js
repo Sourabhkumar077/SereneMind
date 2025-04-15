@@ -23,10 +23,10 @@ function initThreeJS() {
     directionalLight.position.set(1, 1, 1);
     scene.add(directionalLight);
     
-    // Create brain geometry
-    const geometry = new THREE.SphereGeometry(1, 32, 32);
+    // Create stylized brain-like geometry using TorusKnotGeometry
+    const geometry = new THREE.TorusKnotGeometry(0.8, 0.3, 100, 16);
     const material = new THREE.MeshPhongMaterial({
-        color: 0x4A4E69,
+        color: 0x8A9EFF,  // Soft pastel blue
         transparent: true,
         opacity: 0.9,
         shininess: 100,
@@ -76,8 +76,8 @@ function animate() {
     
     // Gentle rotation of brain
     if (brain) {
-        brain.rotation.x += 0.001;
-        brain.rotation.y += 0.002;
+        brain.rotation.x += 0.005;  // Increased rotation speed
+        brain.rotation.y += 0.007;
     }
     
     renderer.render(scene, camera);
